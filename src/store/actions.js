@@ -8,5 +8,11 @@ export default {
   },
   initializeData({commit}) {
     commit('INITIALIZE_DATA')
+  },
+  remBegin({commit}) {
+    commit('REMEMBER_BEGIN')
+  },
+  remEnd({commit}) {
+    commit('REMEMBER_END')
   }
 }

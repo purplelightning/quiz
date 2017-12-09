@@ -7,6 +7,8 @@ Vue.use(Vuex)
 
 const state = {
   itemNum: 0,//第几题
+  beginTime:0,
+  endTime:0,
   itemDetail: [
     {
       'topic_name': '题目一',
