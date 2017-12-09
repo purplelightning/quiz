@@ -52,7 +52,7 @@
     },
     methods: {
       ...mapActions([
-        'initializeData', 'addNum'
+        'initializeData', 'addNum','remEnd','remBegin'
       ]),
       //选中的答案
       chooseAnswer(id) {
@@ -71,6 +71,7 @@
         if (this.choosedId !== null) {
           this.addNum(this.choosedId)
           this.choosedId = null
+          this.remEnd()//记录答题结束时间
           this.$router.push('score')
         } else {
           alert('请选择答案')
@@ -85,6 +86,7 @@
     },
     created() {
       this.initializeData()
+      this.remBegin()
 //      console.log(this.itemDetail[this.itemNum - 1])
     }
   }
