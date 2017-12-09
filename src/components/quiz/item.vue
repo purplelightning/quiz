@@ -2,17 +2,18 @@
   <div class="item">
     <div class="top">题目{{itemNum}}</div>
     <div class="content">
-      <div class="title">{{answerArray.topic_name}}</div>
+      <div class="title">{{itemDetail[this.itemNum - 1].topic_name}}</div>
       <ul>
-        <li v-for="(item,index) in answerArray.topic_answer" @click="chooseAnswer(item.topic_answer_id)">
+        <li v-for="(item,index) in itemDetail[this.itemNum - 1].topic_answer"
+            @click="chooseAnswer(item.topic_answer_id)">
           <span class="option_style"
-                v-bind:class="{'active':choosedIndex===(index+1)}">{{item.topic_answer_id}}</span>
+                v-bind:class="{'active':choosedIndex===(index+1)}">{{index | optionId}}</span>
           <span class="option_detail">{{item.answer_name}}</span>
         </li>
       </ul>
     </div>
-    <button class="btn" @click="nextQuestion" v-show="itemnum!==5">下一题</button>
-    <button @click="submitAnswer" class="btn" v-show="itemnum===5">交卷</button>
+    <button class="btn" @click="nextQuestion" v-show="itemNum!==5">下一题</button>
+    <button @click="submitAnswer" class="btn" v-show="itemNum===5">交卷</button>
   </div>
 </template>
 
@@ -28,8 +29,8 @@
 //          C: '错了',
 //          D: '还是错了'
 //        },
-        itemnum: this.itemNum,//用data获取题目号
-        answerArray: [],//每个题目的答案列表
+//        itemnum: this.itemNum,//用data获取题目号    用不着
+        answerArray: [],//每个题目的答案列表     !!!!这里用这个代替的话，初始渲染有问题！！！！
         choosedId: null//选中的答案的id
       }
     },
@@ -48,11 +49,11 @@
         } else {
           return 4
         }
-      }
+      },
     },
     methods: {
       ...mapActions([
-        'initializeData', 'addNum','remEnd','remBegin'
+        'initializeData', 'addNum', 'remEnd', 'remBegin'
       ]),
       //选中的答案
       chooseAnswer(id) {
@@ -78,16 +79,26 @@
         }
       }
     },
-    watch: {
-      itemNum() {
-        this.itemnum = this.itemNum
-        this.answerArray = this.itemDetail[this.itemNum - 1]
-      }
-    },
     created() {
       this.initializeData()
+//      console.log(this.itemNum)
+//      console.log(this.itemDetail)
       this.remBegin()
-//      console.log(this.itemDetail[this.itemNum - 1])
+    },
+    filters: {
+      optionId(index) {
+        switch (index) {
+          case 0:
+            return 'A'
+          case 1:
+            return 'B'
+          case 2:
+            return 'C'
+          case 3:
+            return 'D'
+        }
+
+      }
     }
   }
 </script>

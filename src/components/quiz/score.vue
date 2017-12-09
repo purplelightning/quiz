@@ -1,10 +1,10 @@
 <template>
   <div id="score">
-    <div>You have done all the questions</div>
-    <div>You have scored：{{finalScore}}</div>
-    <div class="begin">开始时间： {{beginTime | formatDate}}</div>
-    <div class="end">结束时间： {{endTime | formatDate}}</div>
-    <div class="time">共用时间： {{(endTime - beginTime) | compuTime}}秒</div>
+    <div class="text">You have done all the questions</div>
+    <div class="text">You have scored：{{finalScore}}</div>
+    <div class="text">开始时间： {{beginTime | formatDate}}</div>
+    <div class="text">结束时间： {{endTime | formatDate}}</div>
+    <div class="text">共用时间： {{(endTime - beginTime) | compuTime}}秒</div>
   </div>
 </template>
 
@@ -45,7 +45,7 @@
         time = (time / 1000).toFixed(2)
         return time
       }
-    }
+    },
   }
 </script>
 
@@ -58,5 +58,9 @@
     width: 100%
     box-sizing: border-box
     padding: 30px
-    background: #ff5a37
+    background: linear-gradient(to bottom right, rgba(255, 0, 0, 1), rgba(0, 0, 255, 1))
+    .text
+      margin: 20px auto
+      color: white
+      font-size: 20px
 </style>

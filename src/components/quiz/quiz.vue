@@ -2,22 +2,18 @@
   <div id="quiz">
     <h3>Question</h3>
 
-    <router-link to="item" class="btn" @click="initialQue">开始</router-link>
+    <div class="btn" @click="initialQue">开始</div>
     <router-view></router-view>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-  import {mapActions} from 'vuex'
 
   export default {
-    methods:{
-      ...mapActions([
-        'initializeData'
-      ]),
-      initialQue(){
-        this.initializeData()
-
+    methods: {
+      initialQue() {
+//        console.log('aaaaa')
+        this.$router.push('item')
       }
     }
   }
@@ -33,12 +29,12 @@
     background: #77d337
     .btn
       display: block
-      margin:40px auto
-      padding:10px
-      width:100px
+      margin: 40px auto
+      padding: 10px
+      width: 100px
       font-size: 20px
       text-align: center
-      color:red
-      border-radius:8px
+      color: red
+      border-radius: 8px
       background: #ff9c54
 </style>
