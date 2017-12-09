@@ -1,6 +1,6 @@
 <template>
 <div id="part2">
-  <router-link to="/home" class="back" @click="">返回</router-link>
+  <router-link to="/home" class="back">返回</router-link>
   <div>这是part2</div>
 </div>
 </template>

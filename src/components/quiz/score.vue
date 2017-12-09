@@ -2,6 +2,9 @@
   <div id="score">
     <div>You have done all the questions</div>
     <div>You have scored：{{finalScore}}</div>
+    <div class="begin">开始时间： {{}}</div>
+    <div class="end">结束时间： {{}}</div>
+    <div class="time">共用时间： {{}}</div>
   </div>
 </template>
 
@@ -11,7 +14,8 @@
   export default {
     data() {
       return {
-        count: 0
+        count: 0,
+        rightAnswer: [2, 5, 12, 14, 19]
       }
     },
     computed: {
@@ -19,27 +23,17 @@
         'answerId',
       ]),
       finalScore() {
-        if (parseInt(this.answerId[0]) === 2) {
-          this.count++
-        }
-        if (parseInt(this.answerId[1]) === 5) {
-          this.count++
-        }
-        if (parseInt(this.answerId[2]) === 12) {
-          this.count++
-        }
-        if (parseInt(this.answerId[3]) === 14) {
-          this.count++
-        }
-        if (parseInt(this.answerId[4]) === 19) {
-          this.count++
-        }
+        this.answerId.forEach((answer, index) => {
+          if (answer === this.rightAnswer[index]) {
+            this.count++
+          }
+        })
         return 20 * this.count
       },
     },
     created() {
       console.log(this.answerId)
-      this.count=0
+      this.count = 0
     }
   }
 </script>
@@ -51,5 +45,6 @@
     bottom: 0
     left: 0
     width: 100%
+    padding: 30px
     background: #ff5a37
 </style>

@@ -28,16 +28,16 @@
 //          C: '错了',
 //          D: '还是错了'
 //        },
-        itemnum: this.itemNum,
-        answerArray: [],
+        itemnum: this.itemNum,//用data获取题目号
+        answerArray: [],//每个题目的答案列表
         choosedId: null//选中的答案的id
       }
     },
     computed: {
       ...mapState([
-        'itemNum',
-        'answerId',
-        'itemDetail'
+        'itemNum',//题目号
+        'answerId',//选择的答案列表
+        'itemDetail'//答案详情
       ]),
       //选中的索引，用来确定答案的选中状态
       choosedIndex() {
@@ -49,7 +49,6 @@
           return 4
         }
       }
-
     },
     methods: {
       ...mapActions([
@@ -63,15 +62,15 @@
       nextQuestion() {
         if (this.choosedId !== null) {
           this.addNum(this.choosedId)
-          this.choosedId=null
+          this.choosedId = null
         } else {
           alert('请选择答案')
         }
       },
-      submitAnswer(){
+      submitAnswer() {
         if (this.choosedId !== null) {
           this.addNum(this.choosedId)
-          this.choosedId=null
+          this.choosedId = null
           this.$router.push('score')
         } else {
           alert('请选择答案')
@@ -86,7 +85,7 @@
     },
     created() {
       this.initializeData()
-      console.log(this.itemDetail[this.itemNum - 1])
+//      console.log(this.itemDetail[this.itemNum - 1])
     }
   }
 </script>
@@ -109,6 +108,13 @@
       .option_style
         display: inline-block
         margin: 10px auto
+        width: 15px
+        height: 15px
+        padding: 4px
+        text-align: center
+        line-height: 15px
+        broder: 1px solid black
+        border-radius: 50%
         font-size: 20px
         &.active
           background: #ffd829
