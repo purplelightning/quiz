@@ -3,7 +3,7 @@
     <div class="tab">
       <router-link to="/home" class="tab-item">Home</router-link>
       <router-link to="/quiz" class="tab-item">Quiz</router-link>
-      <router-link to="/fas" class="tab-item">Fas</router-link>
+      <router-link to="/fun" class="tab-item">Fun</router-link>
     </div>
   </div>
 </template>

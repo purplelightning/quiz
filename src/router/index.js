@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import home from 'components/home/home'
 import quiz from 'components/quiz/quiz'
-import fas from 'components/fun/fas'
+import fun from 'components/fun/fun'
 import part1 from 'components/home/part1'
 import part2 from 'components/home/part2'
 import part3 from 'components/home/part3'
@@ -52,8 +52,8 @@ export default new Router({
       ]
     },
     {
-      path: '/fas',
-      component: fas
+      path: '/fun',
+      component: fun
     }
   ]
 })
