@@ -7,14 +7,27 @@ const path = require('path')
 module.exports = {
   dev: {
 
+    // http://v.juhe.cn/toutiao/index?type=shehui&key=3771c3180f6dd01a974767a2ebc763f1
+
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      '/open/tupian.json': {
+        target: "http://api.laifudao.com/",
+        changeOrigin: true,
+      /*pathRewrite: {
+        '^/open/tupian.json': '/'
+      }*/
+      // '/toutiao/index?type=shehui&key=3771c3180f6dd01a974767a2ebc763f1': {
+      //   target: "http://v.juhe.cn/",
+      //   changeOrigin: true
+      }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
-    port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
+    port: 8083, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: false,
     errorOverlay: true,
     notifyOnErrors: true,
