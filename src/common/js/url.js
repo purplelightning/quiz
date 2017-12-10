@@ -25,10 +25,10 @@ export const apiUrl = {
   // NBA_ID: "T1348649145984",
 
   //weather的url需要拼接才能得到完整的url
-  WEATHER: "http://weatherapi.market.xiaomi.com/wtr-v2/weather?cityId=",
+  // WEATHER: "http://weatherapi.market.xiaomi.com/wtr-v2/weather?cityId=",
 
   // 图片
-  IMAGES_URL: "http://api.laifudao.com/open/tupian.json",
+  // IMAGES_URL: "http://api.laifudao.com/open/tupian.json",
 
   //
   // APPKEY: "3771c3180f6dd01a974767a2ebc763f1",
@@ -37,6 +37,6 @@ export const apiUrl = {
   // TOU_TIAO: "http://v.juhe.cn/toutiao/index?type=shehui&key=" + APPKEY,
 
 }
-export const apiURRL={
+export const apiURRL = {
   IMAGES_URL: "http://api.laifudao.com/open/tupian.json",
 }

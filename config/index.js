@@ -7,7 +7,6 @@ const path = require('path')
 module.exports = {
   dev: {
 
-    // http://v.juhe.cn/toutiao/index?type=shehui&key=3771c3180f6dd01a974767a2ebc763f1
 
     // Paths
     assetsSubDirectory: 'static',
@@ -16,12 +15,9 @@ module.exports = {
       '/open/tupian.json': {
         target: "http://api.laifudao.com/",
         changeOrigin: true,
-      /*pathRewrite: {
-        '^/open/tupian.json': '/'
-      }*/
-      // '/toutiao/index?type=shehui&key=3771c3180f6dd01a974767a2ebc763f1': {
-      //   target: "http://v.juhe.cn/",
-      //   changeOrigin: true
+        /*pathRewrite: {
+          '^/open/tupian.json': '/'
+        }*/
       }
     },
 

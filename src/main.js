@@ -5,8 +5,13 @@ import App from './App'
 import router from './router'
 import store from './store'
 import axios from 'axios'
+import VueLazyLoad from 'vue-lazyload'
 
 Vue.prototype.$http=axios
+
+Vue.use(VueLazyLoad,{
+  loading:'../static/cat.png'
+})
 
 Vue.config.productionTip = false
 

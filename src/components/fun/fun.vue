@@ -6,7 +6,7 @@
         <ul>
           <li v-for="item in netdata" class="item-fun">
             <div class="name">{{item.title}}</div>
-            <img class="pic" :src="item.sourceurl">
+            <img class="pic" v-lazy="item.sourceurl">
           </li>
         </ul>
       </div>
@@ -18,12 +18,9 @@
 <script type="text/ecmascript-6">
   import {apiUrl} from 'common/js/url'
   import axios from 'axios'
-  //  import {getFun} from 'api/fun'
   import BScroll from 'better-scroll'
 
-
-  let uu = "http://api.laifudao.com/open/tupian.json"
-  let uu2 = "http://v.juhe.cn/toutiao/index?type=shehui&key=3771c3180f6dd01a974767a2ebc763f1"
+  //  let uu = "http://api.laifudao.com/open/tupian.json"
 
   export default {
     data() {
@@ -41,26 +38,24 @@
     created() {
       var _this = this
       this.$http.get("/open/tupian.json"
-//        this.$http.get("/toutiao/index?type=shehui&key=3771c3180f6dd01a974767a2ebc763f1"
         , {params: {}},
       ).then(function (res) {
-//        console.log(res)
-        //        console.log(_this.netdata)
         _this.netdata = res.data
         _this.$nextTick(() => {
+          //设置延迟，查看懒加载
+//          setTimeout(() => {
           _this._initScroll()
+//          }, 2000)
+
         })
       }).catch(function (error) {
         console.log(error)
       })
 
-//      this._initView()
     },
     methods: {
-      _initView() {
-      },
+      //初始化better-scroll
       _initScroll() {
-        console.log('hello')
         if (!this.scroll) {
           this.scroll = new BScroll(this.$refs.laifu, {
             click: true
@@ -85,21 +80,21 @@
     text-align: center
     overflow: hidden
     .title
-      height:40px
-      line-height:40px
+      height: 40px
+      line-height: 40px
       font-size: 26px
       color: #ff1f00
     .content
       .item-fun
-        margin:10px auto
-        padding:20px 0 10px 0
-        background: linear-gradient(to bottom right,rgba(255,50,50,.8),rgba(50,50,255,.6))
+        margin: 10px auto
+        padding: 20px 0 10px 0
+        background: linear-gradient(to bottom right, rgba(255, 50, 50, .8), rgba(50, 50, 255, .6))
         .name
-          margin-bottom:10px
-          height:24px
-          font-size:20px
-          line-height:24px
+          margin-bottom: 10px
+          height: 24px
+          font-size: 20px
+          line-height: 24px
           color: #1e1ed3
         .pic
-          width:250px
+          width: 250px
 </style>
