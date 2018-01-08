@@ -4,10 +4,10 @@
 
 const path = require('path')
 
+// http://guolin.tech/api/bing_pic
+
 module.exports = {
   dev: {
-
-
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
@@ -15,9 +15,10 @@ module.exports = {
       '/open/tupian.json': {
         target: "http://api.laifudao.com/",
         changeOrigin: true,
-        /*pathRewrite: {
-          '^/open/tupian.json': '/'
-        }*/
+      },
+      "/api": {
+        target: "http://guolin.tech/",
+        changeOrigin: true
       }
     },
 
