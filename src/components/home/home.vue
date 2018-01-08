@@ -9,7 +9,8 @@
 </template>
 
 <script type="text/ecmascript-6">
-  export default {}
+  export default {
+  }
 </script>
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
@@ -23,11 +24,11 @@
     background: #43d3bd
     .btn
       display: block
-      margin:40px auto
-      padding:10px
-      width:100px
+      margin: 40px auto
+      padding: 10px
+      width: 100px
       font-size: 20px
-      color:red
-      border-radius:8px
+      color: red
+      border-radius: 8px
       background: #ff9c54
 </style>
