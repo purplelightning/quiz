@@ -25,3 +25,5 @@ css用了stylus,装不了直接删node_modules,全部重装
 router中一二级路由的跳转
 vuex中的state,actions,mutations的使用,mapState,mapActions,如果要与局部函数/局部计算属性放在一起用…mapState,…mapAction
 熟悉了watch,computed,filters等的使用
+
+test
